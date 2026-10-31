@@ -1,32 +1,53 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Game {{ room_id }} | Hand Cricket</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Room {{ room_id }} | Hand Cricket</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=3) }}">
 </head>
+
 <body data-room="{{ room_id }}">
-<main class="shell game-shell">
-  <header class="game-header"><div><p class="eyebrow">ROOM {{ room_id }}</p><h1>HAND CRICKET</h1></div><button id="copyRoom" class="small">Copy invite link</button></header>
-  <section class="panel">
-    <div class="players" id="players"><p>Connecting to room...</p></div>
-    <div class="phase" id="phase">Waiting for players</div>
-    <div class="timer-wrap"><div id="timerValue">--</div><p class="muted">SECONDS REMAINING</p></div>
-    <p id="instruction" class="instruction">Waiting for the second player.</p>
-    <div class="number-grid" id="numberGrid">
-      <button data-number="1">1</button><button data-number="2">2</button><button data-number="3">3</button>
-      <button data-number="4">4</button><button data-number="5">5</button><button data-number="6">6</button>
-    </div>
-    <p id="selectionStatus" class="muted">Choose a number. You can change it until time expires.</p>
-    <div id="inningsChoices" class="choice-row hidden"><button data-choice="bat" class="primary">Bat first</button><button data-choice="bowl">Bowl first</button></div>
-    <div id="scoreboard" class="scoreboard"></div>
-    <div id="reveal" class="reveal"></div>
-    <p id="gameError" class="error"></p>
-  </section>
-  <a class="back" href="/">← Back to home</a>
-</main>
-<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+  <main class="shell">
+    <header class="topbar">
+      <div class="name">Odd-Even Hand Cricket</div>
+      <div class="roombox">
+        <span class="roomcode">{{ room_id }}</span>
+        <button id="copyRoom" class="btn-small">Copy invite</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <div id="connectionBanner" class="banner hidden"></div>
+      <button id="retryBtn" class="btn-blue btn-small banner-retry hidden">Retry connection</button>
+      <div id="phase" class="phase">Connecting...</div>
+      <div id="target" class="target"></div>
+      <div id="scoreboard" class="scoreboard"></div>
+
+      <div class="timer"><span id="timerValue">--</span></div>
+      <p id="instruction" class="instruction">Connecting to room...</p>
+      <p id="notice" class="hint"></p>
+
+      <div id="numberGrid" class="number-grid hidden">
+        <button data-number="1">1</button><button data-number="2">2</button><button data-number="3">3</button>
+        <button data-number="4">4</button><button data-number="5">5</button><button data-number="6">6</button>
+      </div>
+      <p id="selectionStatus" class="hint"></p>
+
+      <div id="inningsChoices" class="choice-row hidden">
+        <button data-choice="bat" class="btn-green">Bat first</button>
+        <button data-choice="bowl" class="btn-blue">Bowl first</button>
+      </div>
+
+      <div id="reveal" class="reveal"></div>
+      <p id="gameError" class="error"></p>
+    </section>
+    <a class="back" href="/">Leave room</a>
+  </main>
+  <script src="{{ url_for('static', filename='js/socket.io.min.js', v=3) }}"></script>
+  <script>window.io || document.write('<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"><\/script>');</script>
+  <script src="{{ url_for('static', filename='js/game.js', v=3) }}"></script>
 </body>
+
 </html>

@@ -1,2 +1,443 @@
-:root{color-scheme:dark;--bg:#10100f;--panel:#1c1b19;--line:#393630;--text:#f5f0e7;--muted:#aaa397;--accent:#e2a34a;--accent2:#f0c078}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#30251a 0,var(--bg) 48%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif}.shell{width:min(680px,calc(100% - 32px));margin:7vh auto}header{text-align:center;margin-bottom:28px}.eyebrow{letter-spacing:.22em;color:var(--accent);font-size:.72rem;font-weight:800}h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1.02;letter-spacing:.04em;margin:12px 0}h1 span{color:var(--accent)}.muted{color:var(--muted);font-size:.9rem}.panel{background:rgba(28,27,25,.96);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,5vw,32px);box-shadow:0 20px 70px #0005}label{display:block;font-size:.86rem;color:var(--muted);margin:14px 0}input,select{display:block;width:100%;margin-top:8px;background:#111;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:13px;font-size:1rem}button{border:1px solid var(--line);background:#292722;color:var(--text);border-radius:12px;padding:13px 18px;font-weight:750;cursor:pointer;transition:.15s}button:hover{border-color:var(--accent);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:var(--accent);border-color:var(--accent);color:#21170b;width:100%}.separator{text-align:center;color:var(--muted);font-size:.72rem;letter-spacing:.16em;margin:24px 0}.error{color:#ff9388;min-height:1.2em}.game-header{display:flex;justify-content:space-between;align-items:center;text-align:left}.game-header h1{font-size:2rem}.small{font-size:.78rem;padding:10px}.players{display:flex;justify-content:space-around;gap:12px;text-align:center;color:var(--muted);font-size:.9rem}.phase{text-align:center;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:800;margin:24px 0 8px}.timer-wrap{text-align:center;margin:18px}.timer-wrap div{font-size:4rem;font-weight:850;line-height:1}.timer-wrap p{letter-spacing:.15em;font-size:.68rem}.instruction{text-align:center;min-height:1.5em}.number-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.number-grid button{font-size:1.6rem;padding:18px}.number-grid button.selected{background:var(--accent);color:#21170b;border-color:var(--accent)}.choice-row{display:flex;gap:10px}.choice-row button{flex:1}.hidden{display:none!important}.scoreboard{display:flex;justify-content:space-around;gap:10px;margin-top:22px;text-align:center}.scoreboard>div{background:#12110f;border:1px solid var(--line);border-radius:12px;padding:14px;flex:1}.score{font-size:2rem;font-weight:850;color:var(--accent)}.reveal{text-align:center;font-size:1.1rem;font-weight:800;margin-top:18px}.back{display:inline-block;margin-top:18px;color:var(--muted);text-decoration:none}@media(max-width:480px){.game-header{align-items:flex-start;gap:10px}.game-header h1{font-size:1.5rem}.number-grid button{padding:14px}}
+/* Plain, white, old-school browser-game look (think skribbl.io).
+   Change the colours here. For skribbl's blue page, set --page-bg: #3d6fe0; */
+:root {
+    --page-bg: #ffffff;
+    --card-bg: #ffffff;
+    --ink: #1b1b1b;
+    --muted: #6b6b6b;
+    --line: #1b1b1b;
+    --blue: #3d6fe0;
+    --green: #4cc72f;
+    --yellow: #ffd23f;
+    --red: #e5413c;
+    --grey: #eeeeee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: "Nunito", "Trebuchet MS", Verdana, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.shell {
+    width: min(560px, calc(100% - 28px));
+    margin: 28px auto 40px;
+}
+
+/* ---------- logo / headings ---------- */
+.logo {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: 1px;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+.logo h1 span {
+    color: var(--ink);
+}
+
+.logo p {
+    margin: 8px 0 0;
+    color: var(--muted);
+}
+
+h2 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* ---------- cards ---------- */
+.card {
+    background: var(--card-bg);
+    border: 3px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--line);
+}
+
+label {
+    display: block;
+    margin: 12px 0 0;
+    font-size: .85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 11px 12px;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-size: 1.05rem;
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid var(--yellow);
+}
+
+.two-col {
+    display: flex;
+    gap: 12px;
+}
+
+.two-col>label {
+    flex: 1;
+}
+
+/* ---------- buttons ---------- */
+button {
+    font: inherit;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+    background: var(--grey);
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    padding: 11px 16px;
+    box-shadow: 0 4px 0 var(--line);
+    transition: transform .05s, box-shadow .05s;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.05);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--line);
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.btn-green {
+    background: var(--green);
+}
+
+.btn-blue {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-wide {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    padding: 6px 10px;
+    font-size: .8rem;
+    box-shadow: 0 3px 0 var(--line);
+}
+
+/* ---------- messages ---------- */
+.status {
+    text-align: center;
+    color: var(--muted);
+    font-size: .9rem;
+    margin: 0 0 6px;
+}
+
+.status.bad {
+    color: var(--red);
+}
+
+.error {
+    color: var(--red);
+    min-height: 1.3em;
+    margin: 8px 0 0;
+    text-align: center;
+}
+
+.hint {
+    color: var(--muted);
+    font-size: .9rem;
+    text-align: center;
+    margin: 6px 0;
+    min-height: 1.3em;
+}
+
+/* ---------- game screen ---------- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.topbar .name {
+    font-size: 1.1rem;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+.roombox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.roomcode {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    background: var(--yellow);
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    padding: 3px 9px;
+}
+
+.phase {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue);
+    font-size: .95rem;
+}
+
+.target {
+    text-align: center;
+    color: var(--red);
+    min-height: 1.3em;
+}
+
+.scoreboard {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.player {
+    flex: 1;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    background: #fff;
+}
+
+.player.off {
+    opacity: .5;
+}
+
+.player .pname {
+    font-size: .95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.player .tag {
+    font-size: .7rem;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.player .score {
+    font-size: 2.2rem;
+    line-height: 1.1;
+}
+
+.role {
+    display: inline-block;
+    font-size: .7rem;
+    padding: 1px 7px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.role.bat {
+    background: var(--green);
+}
+
+.role.bowl {
+    background: var(--yellow);
+}
+
+.timer {
+    text-align: center;
+    margin: 8px 0;
+}
+
+.timer span {
+    display: inline-block;
+    min-width: 88px;
+    padding: 2px 14px;
+    font-size: 3rem;
+    line-height: 1.2;
+    border: 3px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.timer span.low {
+    background: var(--red);
+    color: #fff;
+}
+
+.instruction {
+    text-align: center;
+    font-size: 1.1rem;
+    min-height: 1.5em;
+    margin: 8px 0;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0 6px;
+}
+
+.number-grid button {
+    font-size: 2rem;
+    padding: 14px 0;
+    background: #fff;
+}
+
+.number-grid button.selected {
+    background: var(--yellow);
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--line);
+    outline: 3px solid var(--ink);
+}
+
+.choice-row {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.choice-row button {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.reveal {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 2px dashed #bbb;
+    text-align: center;
+    min-height: 3em;
+}
+
+.reveal:empty {
+    display: none;
+}
+
+.picks {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 6px;
+}
+
+.pick {
+    min-width: 84px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    padding: 6px 10px;
+    background: #fff;
+}
+
+.pick small {
+    display: block;
+    color: var(--muted);
+    font-size: .7rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 110px;
+}
+
+.pick b {
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.verdict {
+    font-size: 1.15rem;
+}
+
+.verdict.out {
+    color: var(--red);
+    font-size: 1.5rem;
+}
+
+.verdict.win {
+    color: var(--green);
+    font-size: 1.4rem;
+    -webkit-text-stroke: .5px var(--ink);
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
+    color: var(--muted);
+}
+
+.banner {
+    background: var(--yellow);
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.banner-retry {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 420px) {
+    .two-col {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timer span {
+        font-size: 2.4rem;
+    }
+}
