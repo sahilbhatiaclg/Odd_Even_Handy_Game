@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Odd-Even Hand Cricket</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="shell">
+  <header><p class="eyebrow">ONLINE • TWO PLAYER</p><h1>ODD–EVEN<br><span>HAND CRICKET</span></h1><p class="muted">Create a room, invite a friend, and play.</p></header>
+  <section class="panel">
+    <label>Your display name<input id="playerName" maxlength="24" placeholder="e.g. Sahil"></label>
+    <label>Round timer (seconds)<input id="timer" type="number" min="5" max="60" value="10"></label>
+    <label>Your toss choice<select id="oddEven"><option value="odd">Odd</option><option value="even">Even</option></select></label>
+    <button id="createBtn" class="primary">Create room</button>
+    <div class="separator">OR JOIN A ROOM</div>
+    <label>Room ID<input id="roomId" maxlength="6" placeholder="Enter 6-character code"></label>
+    <button id="joinBtn">Join room</button>
+    <p id="error" class="error"></p>
+  </section>
+</main>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
