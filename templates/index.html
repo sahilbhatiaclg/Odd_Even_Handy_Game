@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Odd-Even Hand Cricket</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=3) }}">
+  <title>Odd-Eve Hand Cricket</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=4) }}">
 </head>
 
 <body>
   <main class="shell">
     <header class="logo">
-      <h1>Odd-Even <span>Hand Cricket</span></h1>
+      <h1>Odd-Eve <span>Hand Cricket</span></h1>
       <p>Two players. One room. Pick a number, don't get matched.</p>
     </header>
 
@@ -45,9 +45,9 @@
     <p id="status" class="status">Connecting to the game server...</p>
     <p id="error" class="error"></p>
   </main>
-  <script src="{{ url_for('static', filename='js/socket.io.min.js', v=3) }}"></script>
+  <script src="{{ url_for('static', filename='js/socket.io.min.js', v=4) }}"></script>
   <script>window.io || document.write('<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"><\/script>');</script>
-  <script src="{{ url_for('static', filename='js/main.js', v=3) }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js', v=4) }}"></script>
 </body>
 
 </html>

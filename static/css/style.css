@@ -201,19 +201,85 @@ button:disabled {
     text-transform: uppercase;
 }
 
-.roombox {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.codebar {
+    text-align: center;
+    margin-top: 4px;
 }
 
-.roomcode {
-    font-size: 1.2rem;
-    letter-spacing: 3px;
+.codebox {
+    display: inline-block;
     background: var(--yellow);
     border: 2px solid var(--line);
     border-radius: 6px;
-    padding: 3px 9px;
+    padding: 6px 18px;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+
+/* coloured name tag: one colour per player */
+.nametag {
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 10px;
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.nametag.p0 {
+    background: var(--blue);
+}
+
+.nametag.p1 {
+    background: #ff8a3d;
+}
+
+/* three bouncing dots, shown while waiting */
+.dots {
+    text-align: center;
+    height: 22px;
+    margin-bottom: 4px;
+}
+
+.dots i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background: var(--ink);
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.dots i:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.dots i:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dots i {
+        animation: none;
+    }
 }
 
 .phase {
@@ -399,13 +465,6 @@ button:disabled {
     color: var(--green);
     font-size: 1.4rem;
     -webkit-text-stroke: .5px var(--ink);
-}
-
-.back {
-    display: block;
-    text-align: center;
-    margin-top: 6px;
-    color: var(--muted);
 }
 
 .banner {

@@ -4,18 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Room {{ room_id }} | Hand Cricket</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=3) }}">
+  <title>Room {{ room_id }} | Odd-Eve Hand Cricket</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v=4) }}">
 </head>
 
 <body data-room="{{ room_id }}">
   <main class="shell">
     <header class="topbar">
-      <div class="name">Odd-Even Hand Cricket</div>
-      <div class="roombox">
-        <span class="roomcode">{{ room_id }}</span>
-        <button id="copyRoom" class="btn-small">Copy invite</button>
-      </div>
+      <div class="name">ODD - EVE</div>
+      <button id="leaveBtn" class="btn-small">Leave room</button>
     </header>
 
     <section class="card">
@@ -27,6 +24,7 @@
 
       <div class="timer"><span id="timerValue">--</span></div>
       <p id="instruction" class="instruction">Connecting to room...</p>
+      <div id="waitDots" class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
       <p id="notice" class="hint"></p>
 
       <div id="numberGrid" class="number-grid hidden">
@@ -43,11 +41,12 @@
       <div id="reveal" class="reveal"></div>
       <p id="gameError" class="error"></p>
     </section>
-    <a class="back" href="/">Leave room</a>
+
+    <div class="codebar"><span class="codebox">CODE : {{ room_id }}</span></div>
   </main>
-  <script src="{{ url_for('static', filename='js/socket.io.min.js', v=3) }}"></script>
+  <script src="{{ url_for('static', filename='js/socket.io.min.js', v=4) }}"></script>
   <script>window.io || document.write('<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"><\/script>');</script>
-  <script src="{{ url_for('static', filename='js/game.js', v=3) }}"></script>
+  <script src="{{ url_for('static', filename='js/game.js', v=4) }}"></script>
 </body>
 
 </html>

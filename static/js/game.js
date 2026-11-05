@@ -100,16 +100,7 @@
       socket.emit("choose_innings", { room_id: roomId, choice: button.dataset.choice });
     });
   });
-  $("copyRoom").addEventListener("click", async () => {
-    const link = `${location.origin}/?room=${roomId}`;
-    try {
-      await navigator.clipboard.writeText(link);
-      $("copyRoom").textContent = "Copied!";
-    } catch (e) {
-      window.prompt("Copy this invite link:", link); // clipboard needs https or localhost
-    }
-    setTimeout(() => { $("copyRoom").textContent = "Copy invite"; }, 1500);
-  });
+  $("leaveBtn").addEventListener("click", () => { location.href = "/"; });
 
   // ------------------------------------------------------------- rendering
   function render() {
@@ -121,6 +112,8 @@
     $("notice").textContent = state.notice || "";
     renderPlayers();
     $("instruction").textContent = instructionText(open);
+    const waitingOnOther = state.phase === "choose_innings" && state.toss_winner !== me;
+    $("waitDots").classList.toggle("hidden", !(state.phase === "waiting" || waitingOnOther));
 
     $("numberGrid").classList.toggle("hidden", !open);
     if (!open) $("selectionStatus").textContent = "";
@@ -139,7 +132,7 @@
       const role = p.role ? `<span class="role ${p.role}">${p.role === "bat" ? "Batting" : "Bowling"}</span>` : "";
       const tag = `${(info.odd_even || "").toUpperCase()}${i === me ? " - YOU" : ""}`;
       return `<div class="player ${info.connected === false ? "off" : ""}">
-        <div class="pname">${esc(p.name)}</div><div class="tag">${tag}</div>
+        <div class="pname"><span class="nametag p${i}">${esc(p.name)}</span></div><div class="tag">${tag}</div>
         <div class="score">${p.score}</div>${role}</div>`;
     }).join("");
   }

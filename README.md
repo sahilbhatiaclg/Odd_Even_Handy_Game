@@ -1,33 +1,6 @@
-# ODD-EVEN HANDY CRICKET GAME
+# ODD-EVE HAND CRICKET GAME
 
 An online, two-player, browser-based version of the classic hand cricket game, built with Flask and Flask-SocketIO.
-
-
-## Running the Game (Windows)
-
-```powershell
-git clone <YOUR-REPOSITORY-URL>
-cd odd-even-hand-cricket
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python app.py
-```
-
-Open `http://127.0.0.1:5000` in your browser.
-
-**To play:**
-1. Player 1 enters a name, sets the timer, and clicks **Create room**.
-2. Player 1 shares the Room ID or invite link.
-3. Player 2 opens the site, enters the Room ID, and clicks **Join room**.
-4. To test alone, open the second player in an incognito window.
-
-**Friends on the same Wi-Fi:** run `$env:HOST="0.0.0.0"` before `python app.py`, then share `http://<YOUR-IP>:5000` (find your IP with `ipconfig`).
-
-**Stop the server:** press `Ctrl + C`.
-
---- 
-
 
 > **Project status: planning / early development.**
 > This README describes the intended design of the project. Nothing described here should be assumed to be implemented unless it is explicitly marked **Implemented**. See [Implementation Status](#implementation-status).
@@ -58,7 +31,7 @@ Open `http://127.0.0.1:5000` in your browser.
 
 ## Project Overview
 
-**ODD-EVEN HANDY CRICKET GAME** is a website where two people can play hand cricket against each other online, in real time. It is a personal project made for fun with college friends.
+**ODD-EVE HAND CRICKET GAME** is a website where two people can play hand cricket against each other online, in real time. It is a personal project made for fun with college friends.
 
 It is a **website game**, not a native Android, iOS or desktop application. Players open it in a normal web browser.
 
